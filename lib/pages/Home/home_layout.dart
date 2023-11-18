@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../core/widgets/custom_search_bar.dart';
+import 'home_view.dart';
 
 class HomeLayout extends StatelessWidget {
   static const String routeName = "home";
-  const HomeLayout({super.key});
+  List<Widget> screens = [
+    HomeView(),
+  ];
+   HomeLayout({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +38,11 @@ class HomeLayout extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      body: Padding(
+
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: screens[currentIndex ?? 0],
       ),
       bottomNavigationBar: Container(
         clipBehavior: Clip.antiAlias,
